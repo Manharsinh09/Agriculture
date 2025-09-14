@@ -1,0 +1,143 @@
+<?php
+    require 'db.php';
+
+    if(isset($_POST['submit'])){
+
+        $username = $_POST['uname'];
+        $email = $_POST['email'];
+        $password = $_POST['pwd'];
+        $mono =$_POST['mno'];
+        $city = $_POST['city'];
+        
+    
+        $pass = password_hash($password,PASSWORD_BCRYPT);
+
+        $qurey = mysqli_query($dbhandale,"select * from logindb where email = '$email'");
+
+        $emailcount = mysqli_num_rows($qurey);
+
+        if($emailcount>0)
+        {
+            ?>
+                    <script>
+                        alert("email olrady exicting");
+                    </script>
+            <?php
+        }
+        else {
+            
+    
+            $insqry = "insert into logindb(username,email,password,mobileno,city)
+            values('$username','$email','$pass','$mono','$city')" ;
+
+             $res = mysqli_query($dbhandale,$insqry); 
+             
+        ;
+
+
+        }
+
+
+            
+    }
+
+
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login.com</title>
+    <link rel="stylesheet" href="singup.css">
+</head>
+<body>
+    <div class="login">
+        <div class="lb">
+
+        
+            <h1>Login Form</h1>
+            <form method="post">
+
+
+                <div class="inputt">
+                    <input type="text" placeholder="Username"  name="uname" id="uname" required>
+                
+                </div>
+
+                <div class="inputt">
+                    <input type="email" placeholder="email" name="email" id="email">
+                
+                </div>
+                
+                <div class="inputt">
+                    <input type="password" placeholder="password" name="pwd" id="pwd">
+                
+                </div>
+
+
+                <div class="inputt">
+                    <input type="number" placeholder="Mobile No." name="mno" id="mno">
+                
+                </div>
+                
+                <div class="inputt">
+                    <input type="text" placeholder="City" name="city" id="city">
+               
+                
+                </div>
+                
+                <input type="submit" name="submit" value="Login" onclick="return myfunction(this.form);">
+                
+                <span id="asd"><a class="btn" href="logindata.php"> view data </a></span>
+            
+            
+             </form>
+             
+             
+             
+            <h4> Alredy have account</h4> <a href="login.php">Login hear</a>
+        </div>
+    </div>
+
+<script>
+
+
+	function myfunction(f){
+		if(f.uname.value=='' ){
+			alert("Plese enter  username");
+			f.uname.focus();
+			return false;
+		}
+
+        else if(f.pwd.value==''){
+            alert("Plese enter  password");
+			f.pwd.focus();
+			return false;
+        }
+
+        else if(f.mno.value==''){
+            alert("Plese enter  Mobile No");
+			f.mno.focus();
+			return false;
+        }
+        else if(f.city.value==''){
+            alert("Plese enter  city");
+			f.city.focus();
+			return false;
+        }
+		
+		
+	}
+
+
+</script>
+    
+</body>
+</html>
+
+
+

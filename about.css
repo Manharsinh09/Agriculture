@@ -1,0 +1,123 @@
+.wraper{
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+}
+.about{
+    width: 100%;
+    height: 90vh;
+}
+
+.about-img{
+
+    float: left;
+    width: 50%;
+    display: inline;
+}
+.ab{
+    margin-top: 115px;   
+    width: 100%;
+}
+
+.about-text{
+    display: inline;
+    float: right;
+    color: rgb(1, 5, 0);
+    margin-top: 115px;
+    width: 50%;
+    
+}
+.sub-header{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.sub-header a{
+    font-size: 30px;
+    color: rgb(67, 124, 1);
+    text-decoration: none;
+    cursor: pointer;
+    transition: 1.3s;
+    position: relative;
+}
+.sub-header a::after{ 
+    content: "";
+    position: absolute;
+    background-color: rgb(130, 218, 89);
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -.3rem;
+    transition: 1s;
+}
+
+.sub-header a:hover:after{width: 100%;}
+
+.choise-text-wrap{
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    
+
+}
+.choise-text-wrap ul li{
+    margin: 20px 0px 0px 50px;
+}
+.hide{
+    display: none;
+}
+/* .about-text ul{
+    margin: 0px;
+    display: inline;
+    padding: 0px;
+    list-style: none;
+
+}
+.about-text ul li {
+    text-decoration: none; 
+    font-size: 25px;
+    display: inline-block;
+    padding-left :10%;
+    padding-right:5%;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    line-height: 50px;
+}
+.about-text ul li a{
+    text-decoration: none;
+    display: inline-block;
+    color:rgb(0, 0, 0);  
+} */
+
+/* .title1{
+    display: none;
+}
+.title2{
+    display: none;
+}
+.title3{
+    display: none;
+} */
+
+/* .about-text ul li:hover .title1{
+    color: rgb(0, 0, 0);
+    display: block;
+    padding-right: 12px;
+   
+}
+
+
+.about-text ul li:hover .title2{
+    color: rgb(17, 17, 17);
+    display: block;
+    margin-top: 10px;
+}
+
+
+.about-text ul li:hover .title3{
+    color: rgb(0, 0, 0);
+    display: block;
+    margin-top: 10px;
+} */

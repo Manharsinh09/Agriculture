@@ -1,0 +1,78 @@
+<?php
+require 'db.php';
+
+if(isset($_POST['login'])){
+
+    $email = $_POST['email'];
+    $password =$_POST['pwd'];
+
+    $selqry = "select * from logindb where email = '$email'";
+    $query = mysqli_query($dbhandale,$selqry);
+    
+    $email_count = mysqli_num_rows($query);
+
+    if($email_count>0)
+    {
+        $emailpass = mysqli_fetch_assoc($query);
+
+       $pass = $emailpass['password'];
+       
+      $veripas = password_verify($password,$pass);
+      
+        if($veripas)
+        {
+            echo "sucsessfuly";
+
+            header('location:index.php');
+        }
+        else {
+            echo "password wrong";
+        }
+
+    }
+    else {
+        echo "invalid email";
+    }
+    
+
+}
+
+?>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login.com</title>
+    <link rel="stylesheet" href="singup.css">
+</head>
+<body>
+    <div class="login">
+        <div class="lb">
+
+        
+            <h1>Login Form</h1>
+            <form method="post">
+
+                <div class="inputt">
+                    <input type="email" placeholder="email" name="email" id="email">
+                
+                </div>
+                
+                <div class="inputt">
+                    <input type="password" placeholder="password" name="pwd" id="pwd">
+                
+                </div>
+                <input type="submit" name="login" value="login" onclick="return myfunction(this.form);">
+                <span id="asd"><a class="btn" href="singup.php"> singup </a></span>
+            
+            </form>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+
